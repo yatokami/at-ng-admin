@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="wrap">
+    <div class="top">
+      <div class="head">
+        <img class="logo" src="https://cipchk.github.io/ng-alain/assets/logo-color.svg" alt="">
+        <span class="title">ng-admin-demo</span>
+      </div>
+      <div class="desc">
+          武林中最有影响力的《葵花宝典》；欲练神功，挥刀自宫
+      </div>
+    </div>
+    <div class="form">
+      <form class="at-form" atForm [formGroup]="validateForm" (ngSubmit)="onSubmit()" >
+        <div class="at-tab">
+          <at-tab-set [position]="'horizontal'" (atSelectChange)="onSubmitChange()">
+            <at-tab>
+              <ng-template #atTabHeading>
+                账号密码登陆
+              </ng-template>
+              <div>
+                <at-form-item *ngIf="msgerror1" class="form-item">
+                  <at-alert [icon]="true" [atType]="'error'" [message]="msgerror1" style="width: 100%"></at-alert>
+                </at-form-item>
+                <at-form-item class="form-item">
+                  <at-form-control>
+                    <atInput  [atSize]="'large'" [atStatus]="getError('username')"  formControlName="username" [placeholder]="'admin'">
+                        <span atPrepend><at-icon [type]="'user'"></at-icon></span>
+                    </atInput>
+                  </at-form-control>
+                  <div *ngIf="getValidate('username').invalid && getValidate('username').dirty">
+                    <div class="error-msg" *ngIf="getValidate('username').errors.required || getValidate('username').errors.minlength">
+                        请输入账户名且至少四个字符！
+                    </div>
+                  </div>
+                </at-form-item>
+                <at-form-item class="form-item"> 
+                  <at-form-control>
+                    <atInput [atSize]="'large'"  [atStatus]="getError('password')" formControlName="password" [placeholder]="88888888">
+                        <span atPrepend><at-icon [type]="'lock'"></at-icon></span>
+                    </atInput>
+                  </at-form-control>
+                  <div *ngIf="getValidate('password').invalid && getValidate('password').dirty">
+                      <div class="error-msg" *ngIf="getValidate('password').errors.required">
+                        请输入密码
+                      </div>
+                    </div>
+                </at-form-item>
+              </div>
+            </at-tab>
+            <at-tab>
+              <ng-template #atTabHeading>
+                手机登陆
+              </ng-template>
+              <div>
+                  <at-form-item class="form-item">
+                    <at-form-control>
+                      <atInput  [atSize]="'large'" formControlName="tel" [placeholder]="123456789">
+                          <span atPrepend><at-icon [type]="'user'"></at-icon></span>
+                      </atInput>
+                    </at-form-control>
+                  </at-form-item>
+                  <at-form-item class="form-item"> 
+                    <at-form-control>
+                      <atInput [atSize]="'large'" formControlName="telpwd" [placeholder]="88888888">
+                          <span atPrepend><at-icon [type]="'lock'"></at-icon></span>
+                      </atInput>
+                    </at-form-control>
+                  </at-form-item>
+                </div>
+            </at-tab>
+          </at-tab-set>
+        </div>
+        <div at-row>
+          <div at-col [span]="12">
+            <div>
+              <at-form-item class="form-item">
+                <at-form-control>
+                  <at-checkbox [label]="'自动登陆'" formControlName="checked">
+                  </at-checkbox>
+                </at-form-control>
+              </at-form-item>
+            </div>
+          </div>
+          <div at-col [span]="12" class="forgetpwd">
+            <div>
+              <a href="">忘记密码？</a>
+            </div>
+          </div>
+        </div>
+        <div at-row>
+          <at-form-item class="form-item" style="width:100%">
+            <at-form-control>
+              <button style="width:100%" type="submit" at-button [size]="'large'" [atType]="'primary'">登录</button>
+            </at-form-control>
+          </at-form-item>
+        </div>
+        <div at-row>
+          <at-form-item class="form-item" style="width:100%">
+            <div at-col [span]="19">
+              <div class="other">
+                其他登陆方式
+                <at-icon [type]="'facebook'" title="脸书"></at-icon>
+                <at-icon [type]="'github'" title="gayhub"></at-icon>
+                <at-icon [type]="'twitter'" title="推特"></at-icon>
+              </div>
+            </div>
+            <div at-col [span]="5">
+              <div class="register">
+                <a href="">注册账号</a>
+              </div>
+            </div>
+          </at-form-item>
+        </div>
+      </form>
+    </div>
+    <app-global-footer class="at-global-footer"></app-global-footer>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+.logo {
+    height: 64px;
+    background: #333;
+    text-align: center;
+  }
+  
+  .at-layout-breadcrumb {
+    margin: 16px 0px;
+  }
+  
+  ::ng-deep .at-layout-header .at-dropdown__trigger {
+    padding: 20px 15px;
+    cursor: pointer;
+  }
+  
+  ::ng-deep .at-layout-header .at-dropdown__trigger:hover {
+    background: #ECF2FC;
+  }
+  
+  ::ng-deep .blue-header .at-dropdown__trigger:hover {
+    background: #346FC2;
+    color: white;
+  }
+  
+  .logo-link {
+    position: relative;
+    width: 100%;
+    padding-top: 18px;
+    display: block;
+    line-height: 30px;
+    color: white;
+  }
+  
+  .logo-img {
+    max-height: 100%;
+    max-width: 100%;
+    width: 30px;
+    height: 30px;
+    margin: 0px auto;
+    position: absolute;
+    left: 45px;
+  }
+  
